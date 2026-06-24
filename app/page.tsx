@@ -29,7 +29,17 @@ export default function Home() {
         <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
           無料で試す →
         </Link>
-        <p className="text-sm text-gray-400 mt-4">いつでも解約可能</p>
+        <p className="text-sm text-gray-400 mt-4">いつでも解約可能・設定5分</p>
+      </section>
+
+      {/* 信頼バッジ */}
+      <section className="border-y border-gray-100 py-6 px-6">
+        <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-8 text-sm text-gray-500">
+          <span className="flex items-center gap-2">🔒 Stripe決済（SSL暗号化）</span>
+          <span className="flex items-center gap-2">🤖 Claude（Anthropic）搭載</span>
+          <span className="flex items-center gap-2">📋 特定商取引法表記あり</span>
+          <span className="flex items-center gap-2">🇯🇵 日本人運営</span>
+        </div>
       </section>
 
       {/* 課題 */}
@@ -52,7 +62,7 @@ export default function Home() {
       {/* 解決策 */}
       <section className="bg-gray-50 px-6 py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">AI Sales Assistが解決します</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">3ステップで自動化完了</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { step: '1', title: 'ビジネス情報を登録', desc: 'あなたのサービス内容・よくある質問を入力するだけ' },
@@ -112,7 +122,52 @@ export default function Home() {
             <Link href="/auth" className="block w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition">
               今すぐ始める
             </Link>
+            <p className="text-xs text-gray-400 mt-3">Stripeによる安全な決済。いつでも解約可能。</p>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-16 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-10">よくある質問</h2>
+        <div className="space-y-6">
+          {[
+            {
+              q: 'LINEの設定は難しいですか？',
+              a: 'LINE Developersでチャンネルを作成し、トークンをコピペするだけです。手順は登録後のガイドで説明しています。',
+            },
+            {
+              q: 'AIがおかしな返信をしないか心配です',
+              a: 'セミオートモードを使えば、送信前に確認して承認できます。不安な方はまずセミオートからお試しください。',
+            },
+            {
+              q: '個人情報は安全ですか？',
+              a: 'データはSupabaseに暗号化して保管し、第三者への販売は一切行いません。決済はStripeを通じており、カード情報は当サービスでは保持しません。',
+            },
+            {
+              q: 'いつでも解約できますか？',
+              a: 'はい、マイページからいつでも解約できます。解約後は次回更新日まで利用可能です。',
+            },
+            {
+              q: 'どんなLINEアカウントで使えますか？',
+              a: 'LINE公式アカウント（Messaging API対応）が必要です。個人のLINEアカウントには対応していません。',
+            },
+          ].map((item, i) => (
+            <div key={i} className="border border-gray-200 rounded-xl p-6">
+              <h3 className="font-medium text-gray-800 mb-2">Q. {item.q}</h3>
+              <p className="text-gray-500 text-sm">A. {item.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 運営者情報 */}
+      <section className="bg-gray-50 px-6 py-10">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm text-gray-500">
+            運営者：福田煌介（東京都新宿区）<br />
+            お問い合わせ：<a href="mailto:kosuke.0507.fukuda@gmail.com" className="text-blue-600 hover:underline">kosuke.0507.fukuda@gmail.com</a>
+          </p>
         </div>
       </section>
 
@@ -126,8 +181,10 @@ export default function Home() {
       </section>
 
       {/* フッター */}
-      <footer className="border-t border-gray-100 px-6 py-8 text-center text-sm text-gray-400">
-        <p>© 2026 AI Sales Assist</p>
+      <footer className="border-t border-gray-100 px-6 py-8 text-center text-sm text-gray-400 space-x-4">
+        <span>© 2026 AI Sales Assist</span>
+        <Link href="/legal" className="hover:text-gray-600">特定商取引法に基づく表記</Link>
+        <Link href="/privacy" className="hover:text-gray-600">プライバシーポリシー</Link>
       </footer>
     </div>
   )
