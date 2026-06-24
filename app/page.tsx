@@ -17,25 +17,54 @@ export default function Home() {
       </nav>
 
       {/* ヒーロー */}
-      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '120px 32px 100px', textAlign: 'center' }}>
-        <div style={{ display: 'inline-block', fontSize: '13px', color: '#666', border: '1px solid #e5e5e5', borderRadius: '100px', padding: '4px 14px', marginBottom: '32px', letterSpacing: '0.02em' }}>
-          ネイル・まつ毛・ハンドメイド作家さんへ
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* 背景画像 */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <img
+            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=80&auto=format&fit=crop"
+            alt="ネイルサロンの施術"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.7) 100%)' }} />
         </div>
-        <h1 style={{ fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 700, letterSpacing: '-2px', lineHeight: 1.1, color: '#111', marginBottom: '24px' }}>
-          LINEの問い合わせ、<br />もう手で返さなくていい。
-        </h1>
-        <p style={{ fontSize: '18px', color: '#666', lineHeight: 1.7, marginBottom: '40px', maxWidth: '500px', margin: '0 auto 40px' }}>
-          施術中・深夜・休日。いつ来た問い合わせにも、AIが数秒で返信します。
-        </p>
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/auth" style={{ fontSize: '15px', color: '#fff', background: '#111', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 600, letterSpacing: '-0.3px' }}>
-            今すぐ始める →
-          </Link>
-          <Link href="#how" style={{ fontSize: '15px', color: '#111', background: '#f5f5f5', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 500 }}>
-            仕組みを見る
-          </Link>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '720px', margin: '0 auto', padding: '140px 32px 120px', textAlign: 'center' }}>
+          <div style={{ display: 'inline-block', fontSize: '13px', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '100px', padding: '4px 14px', marginBottom: '32px', letterSpacing: '0.02em' }}>
+            ネイル・まつ毛・ハンドメイド作家さんへ
+          </div>
+          <h1 style={{ fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 700, letterSpacing: '-2px', lineHeight: 1.1, color: '#fff', marginBottom: '24px' }}>
+            LINEの問い合わせ、<br />もう手で返さなくていい。
+          </h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '40px', maxWidth: '500px', margin: '0 auto 40px' }}>
+            施術中・深夜・休日。いつ来た問い合わせにも、AIが数秒で返信します。
+          </p>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/auth" style={{ fontSize: '15px', color: '#111', background: '#fff', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, letterSpacing: '-0.3px' }}>
+              今すぐ始める →
+            </Link>
+            <Link href="#how" style={{ fontSize: '15px', color: '#fff', background: 'rgba(255,255,255,0.15)', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 500, border: '1px solid rgba(255,255,255,0.3)' }}>
+              仕組みを見る
+            </Link>
+          </div>
+          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', marginTop: '16px' }}>月額¥3,980 · いつでも解約可能</p>
         </div>
-        <p style={{ fontSize: '13px', color: '#999', marginTop: '16px' }}>月額¥3,980 · いつでも解約可能</p>
+      </section>
+
+      {/* こんな方に */}
+      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '80px 32px 0' }}>
+        <p style={{ fontSize: '13px', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '24px', textAlign: 'center' }}>こんな方に使われています</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+          {[
+            { img: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80&auto=format&fit=crop', label: 'ネイリスト' },
+            { img: 'https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400&q=80&auto=format&fit=crop', label: 'まつ毛・エステ' },
+            { img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop', label: 'ハンドメイド作家' },
+          ].map((item, i) => (
+            <div key={i} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', aspectRatio: '3/4' }}>
+              <img src={item.img} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', bottom: '14px', left: '14px', fontSize: '14px', fontWeight: 600, color: '#fff' }}>{item.label}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* 数字で信頼 */}
