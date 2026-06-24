@@ -2,79 +2,101 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* ヘッダー */}
-      <header className="border-b border-gray-100 px-6 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl text-blue-600">AI Sales Assist</div>
-        <div className="flex gap-4 items-center">
-          <Link href="/auth" className="text-sm text-gray-600 hover:text-gray-900">ログイン</Link>
-          <Link href="/auth" className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            今すぐ始める
+    <div className="min-h-screen bg-white" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
+
+      {/* ナビ */}
+      <nav style={{ borderBottom: '1px solid #f0f0f0', padding: '0 32px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', zIndex: 50 }}>
+        <div style={{ fontWeight: 700, fontSize: '18px', letterSpacing: '-0.5px' }}>AI Sales Assist</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <Link href="/legal" style={{ fontSize: '14px', color: '#666', textDecoration: 'none' }}>特商法</Link>
+          <Link href="/auth" style={{ fontSize: '14px', color: '#666', textDecoration: 'none' }}>ログイン</Link>
+          <Link href="/auth" style={{ fontSize: '14px', color: '#fff', background: '#111', padding: '8px 20px', borderRadius: '8px', textDecoration: 'none', fontWeight: 500 }}>
+            はじめる
           </Link>
         </div>
-      </header>
+      </nav>
 
       {/* ヒーロー */}
-      <section className="text-center px-6 py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="inline-block bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-6">
-          ネイル・まつ毛・ハンドメイド作家さん向け
+      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '120px 32px 100px', textAlign: 'center' }}>
+        <div style={{ display: 'inline-block', fontSize: '13px', color: '#666', border: '1px solid #e5e5e5', borderRadius: '100px', padding: '4px 14px', marginBottom: '32px', letterSpacing: '0.02em' }}>
+          ネイル・まつ毛・ハンドメイド作家さんへ
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-          「空き日程は？」「料金は？」<br />
-          <span className="text-blue-600">全部AIが自動で返します。</span>
+        <h1 style={{ fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 700, letterSpacing: '-2px', lineHeight: 1.1, color: '#111', marginBottom: '24px' }}>
+          LINEの問い合わせ、<br />もう手で返さなくていい。
         </h1>
-        <p className="text-lg text-gray-500 mb-10 max-w-xl mx-auto">
-          1人サロン・ハンドメイド作家のLINEに来る問い合わせを、Claudeが24時間自動で対応。返信漏れ・機会損失をなくします。
+        <p style={{ fontSize: '18px', color: '#666', lineHeight: 1.7, marginBottom: '40px', maxWidth: '500px', margin: '0 auto 40px' }}>
+          施術中・深夜・休日。いつ来た問い合わせにも、AIが数秒で返信します。
         </p>
-        <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-          今すぐ始める →
-        </Link>
-        <p className="text-sm text-gray-400 mt-4">いつでも解約可能・設定5分・月額¥3,980</p>
-      </section>
-
-      {/* 信頼バッジ */}
-      <section className="border-y border-gray-100 py-6 px-6">
-        <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-8 text-sm text-gray-500">
-          <span className="flex items-center gap-2">🔒 Stripe決済（SSL暗号化）</span>
-          <span className="flex items-center gap-2">🤖 Claude（Anthropic）搭載</span>
-          <span className="flex items-center gap-2">📋 特定商取引法表記あり</span>
-          <span className="flex items-center gap-2">🇯🇵 日本人運営</span>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link href="/auth" style={{ fontSize: '15px', color: '#fff', background: '#111', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 600, letterSpacing: '-0.3px' }}>
+            今すぐ始める →
+          </Link>
+          <Link href="#how" style={{ fontSize: '15px', color: '#111', background: '#f5f5f5', padding: '14px 32px', borderRadius: '10px', textDecoration: 'none', fontWeight: 500 }}>
+            仕組みを見る
+          </Link>
         </div>
+        <p style={{ fontSize: '13px', color: '#999', marginTop: '16px' }}>月額¥3,980 · いつでも解約可能</p>
       </section>
 
-      {/* 課題 */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">こんなお悩みありませんか？</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+      {/* 数字で信頼 */}
+      <section style={{ borderTop: '1px solid #f0f0f0', borderBottom: '1px solid #f0f0f0', padding: '40px 32px' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px', textAlign: 'center' }}>
           {[
-            { emoji: '😩', text: '施術中にLINEが来て、終わったら返信を忘れてしまう' },
-            { emoji: '😰', text: '返信が遅くて他のサロンに予約を取られてしまう' },
-            { emoji: '🤯', text: '「料金は？」「空きは？」を毎回手打ちするのが面倒' },
+            { num: '数秒', label: '返信にかかる時間' },
+            { num: '24時間', label: '365日対応' },
+            { num: '¥3,980', label: '月額（税込）' },
           ].map((item, i) => (
-            <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-6 text-center">
-              <div className="text-3xl mb-3">{item.emoji}</div>
-              <p className="text-gray-700 font-medium">{item.text}</p>
+            <div key={i}>
+              <div style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', color: '#111' }}>{item.num}</div>
+              <div style={{ fontSize: '13px', color: '#999', marginTop: '4px' }}>{item.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 解決策 */}
-      <section className="bg-gray-50 px-6 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">3ステップで自動化完了</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+      {/* 課題 */}
+      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '100px 32px' }}>
+        <p style={{ fontSize: '13px', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>Problem</p>
+        <h2 style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', color: '#111', marginBottom: '48px', lineHeight: 1.2 }}>
+          1人で全部やるのは、<br />もう限界じゃないですか。
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          {[
+            { title: '施術中に返信できない', desc: '手が離せない間にメッセージが来て、気づいたら他の人に予約を取られていた。' },
+            { title: '深夜の問い合わせに対応できない', desc: 'お客様は夜に調べる。翌朝返信したら「もう他で決めました」。' },
+            { title: '同じ質問を毎回手打ちする', desc: '料金は？空きは？場所は？毎回同じことを一から書くのは時間の無駄。' },
+          ].map((item, i) => (
+            <div key={i} style={{ padding: '24px', border: '1px solid #f0f0f0', borderRadius: '12px', background: '#fafafa' }}>
+              <div style={{ fontSize: '15px', fontWeight: 600, color: '#111', marginBottom: '8px' }}>{item.title}</div>
+              <div style={{ fontSize: '14px', color: '#666', lineHeight: 1.6 }}>{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 解決 */}
+      <section id="how" style={{ background: '#111', color: 'white', padding: '100px 32px' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+          <p style={{ fontSize: '13px', color: '#666', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>Solution</p>
+          <h2 style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', marginBottom: '16px', lineHeight: 1.2 }}>
+            設定5分。あとはAIが全部やります。
+          </h2>
+          <p style={{ fontSize: '16px', color: '#aaa', marginBottom: '64px', lineHeight: 1.7 }}>
+            サロン情報を登録して、LINEと繋ぐだけ。<br />
+            お客様の質問にClaudeが自動で答えます。
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             {[
-              { step: '1', title: 'サロン情報を登録', desc: 'メニュー・料金・営業時間などを入力するだけ' },
-              { step: '2', title: 'LINEと連携', desc: 'LINE DevelopersのトークンをコピペするだけでOK' },
-              { step: '3', title: 'AIが24時間対応', desc: '施術中・深夜でもClaudeがお客様に自動で返信' },
+              { step: '01', title: 'サロン情報を入力する', desc: 'メニュー・料金・営業時間・予約方法を登録。AIがこれを元に返信文を作ります。' },
+              { step: '02', title: 'LINEと連携する', desc: 'LINE DevelopersのトークンをコピペするだけでOK。難しい設定は一切ありません。' },
+              { step: '03', title: 'あとは何もしなくていい', desc: '問い合わせが来るたびに、AIが数秒以内に返信します。施術に集中してください。' },
             ].map((item, i) => (
-              <div key={i} className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">
-                  {item.step}
+              <div key={i} style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+                <div style={{ fontSize: '13px', color: '#444', fontWeight: 600, minWidth: '32px', paddingTop: '2px', letterSpacing: '0.05em' }}>{item.step}</div>
+                <div style={{ flex: 1, paddingBottom: '32px', borderBottom: i < 2 ? '1px solid #222' : 'none' }}>
+                  <div style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px' }}>{item.title}</div>
+                  <div style={{ fontSize: '14px', color: '#888', lineHeight: 1.7 }}>{item.desc}</div>
                 </div>
-                <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -82,109 +104,95 @@ export default function Home() {
       </section>
 
       {/* 機能 */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">主な機能</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+      <section style={{ maxWidth: '720px', margin: '0 auto', padding: '100px 32px' }}>
+        <p style={{ fontSize: '13px', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>Features</p>
+        <h2 style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', color: '#111', marginBottom: '48px', lineHeight: 1.2 }}>
+          使いやすさにこだわりました。
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2px', border: '1px solid #f0f0f0', borderRadius: '16px', overflow: 'hidden' }}>
           {[
-            { icon: '🤖', title: '施術中も即レス', desc: '手が離せない時間でもClaudeが数秒以内に返信。機会損失をゼロに。' },
-            { icon: '✅', title: '確認してから送信', desc: 'AIが下書きを作成。送る前に確認できるので安心して使えます。' },
-            { icon: '🎯', title: 'サロン情報を覚えて返信', desc: '料金・メニュー・予約方法をAIが記憶。的確な返信を自動生成。' },
-            { icon: '📊', title: '管理画面で一覧確認', desc: 'お客様とのやりとりを一覧で確認。対応漏れを防ぎます。' },
+            { title: 'フルオート返信', desc: '問い合わせが来た瞬間、AIが自動で返信。あなたは何もしなくてOK。' },
+            { title: '送信前に確認できる', desc: 'AIの下書きを確認してから送る「セミオート」モードも選べます。' },
+            { title: '自然な返信文', desc: 'Anthropic社のClaude搭載。テンプレートっぽさがない、自然な文章を生成。' },
+            { title: '管理画面で全確認', desc: 'お客様とのやりとりを一覧で確認。対応漏れを防ぎます。' },
           ].map((item, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl p-6">
-              <div className="text-3xl mb-3">{item.icon}</div>
-              <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-gray-500 text-sm">{item.desc}</p>
+            <div key={i} style={{ padding: '32px', background: '#fafafa', borderRight: i % 2 === 0 ? '1px solid #f0f0f0' : 'none', borderBottom: i < 2 ? '1px solid #f0f0f0' : 'none' }}>
+              <div style={{ fontSize: '16px', fontWeight: 600, color: '#111', marginBottom: '8px' }}>{item.title}</div>
+              <div style={{ fontSize: '14px', color: '#666', lineHeight: 1.6 }}>{item.desc}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* 料金 */}
-      <section className="bg-blue-50 px-6 py-16">
-        <div className="max-w-md mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-8">シンプルな料金体系</h2>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <div className="text-5xl font-bold text-blue-600 mb-2">¥3,980</div>
-            <div className="text-gray-500 mb-6">/ 月（税込）</div>
-            <ul className="text-left space-y-3 mb-8">
-              {[
-                'LINE自動返信 無制限',
-                'フルオート・セミオート切替',
-                'メッセージ管理画面',
-                'いつでも解約可能',
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-gray-700">
-                  <span className="text-green-500 font-bold">✓</span>{item}
-                </li>
+      <section style={{ background: '#fafafa', padding: '100px 32px' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ fontSize: '13px', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>Pricing</p>
+          <h2 style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', color: '#111', marginBottom: '48px' }}>シンプルな1プラン</h2>
+          <div style={{ background: '#fff', border: '1px solid #e5e5e5', borderRadius: '20px', padding: '48px', textAlign: 'left' }}>
+            <div style={{ fontSize: '48px', fontWeight: 700, letterSpacing: '-2px', color: '#111', marginBottom: '4px' }}>¥3,980</div>
+            <div style={{ fontSize: '14px', color: '#999', marginBottom: '32px' }}>/ 月（税込）</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              {['LINE自動返信 無制限', 'フルオート・セミオート切替', 'メッセージ管理画面', 'いつでも解約可能'].map((item, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: '#444' }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#111"/><path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  {item}
+                </div>
               ))}
-            </ul>
-            <Link href="/auth" className="block w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition">
+            </div>
+            <Link href="/auth" style={{ display: 'block', textAlign: 'center', background: '#111', color: '#fff', padding: '14px', borderRadius: '10px', textDecoration: 'none', fontSize: '15px', fontWeight: 600 }}>
               今すぐ始める
             </Link>
-            <p className="text-xs text-gray-400 mt-3">Stripeによる安全な決済。いつでも解約可能。</p>
+            <p style={{ fontSize: '13px', color: '#999', textAlign: 'center', marginTop: '12px' }}>Stripeによる安全な決済</p>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="px-6 py-16 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-10">よくある質問</h2>
-        <div className="space-y-6">
+      <section style={{ maxWidth: '640px', margin: '0 auto', padding: '100px 32px' }}>
+        <p style={{ fontSize: '13px', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>FAQ</p>
+        <h2 style={{ fontSize: '32px', fontWeight: 700, letterSpacing: '-1px', color: '#111', marginBottom: '48px' }}>よくある質問</h2>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           {[
-            {
-              q: 'LINEの設定は難しいですか？',
-              a: 'LINE Developersでチャンネルを作成し、トークンをコピペするだけです。ネイリストやハンドメイド作家さんでも設定できる手順で説明しています。',
-            },
-            {
-              q: 'AIがおかしな返信をしないか心配です',
-              a: 'セミオートモードを使えば、送信前に確認して承認できます。不安な方はまずセミオートからお試しください。',
-            },
-            {
-              q: '個人情報は安全ですか？',
-              a: 'データはSupabaseに暗号化して保管し、第三者への販売は一切行いません。決済はStripeを通じており、カード情報は当サービスでは保持しません。',
-            },
-            {
-              q: 'いつでも解約できますか？',
-              a: 'はい、マイページからいつでも解約できます。解約後は次回更新日まで利用可能です。',
-            },
-            {
-              q: 'どんなLINEアカウントで使えますか？',
-              a: 'LINE公式アカウント（Messaging API対応）が必要です。個人のLINEアカウントには対応していません。',
-            },
+            { q: 'LINEの設定は難しいですか？', a: 'LINE Developersでチャンネルを作成し、トークンをコピペするだけです。IT知識がなくても設定できる手順でご案内しています。' },
+            { q: 'おかしな返信をしませんか？', a: 'セミオートモードなら、AIの下書きを確認してから送信できます。まずはこちらから試してみてください。' },
+            { q: '個人情報は安全ですか？', a: 'データは暗号化して保管し、第三者への販売は一切行いません。決済はStripeを通じており、カード情報は当サービスでは保持しません。' },
+            { q: 'いつでも解約できますか？', a: 'はい。マイページからいつでも解約できます。解約後は次回更新日まで利用可能です。' },
           ].map((item, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl p-6">
-              <h3 className="font-medium text-gray-800 mb-2">Q. {item.q}</h3>
-              <p className="text-gray-500 text-sm">A. {item.a}</p>
+            <div key={i} style={{ padding: '24px 0', borderBottom: '1px solid #f0f0f0' }}>
+              <div style={{ fontSize: '15px', fontWeight: 600, color: '#111', marginBottom: '8px' }}>{item.q}</div>
+              <div style={{ fontSize: '14px', color: '#666', lineHeight: 1.7 }}>{item.a}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 運営者情報 */}
-      <section className="bg-gray-50 px-6 py-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm text-gray-500">
-            運営者：福田煌介（東京都新宿区）<br />
-            お問い合わせ：<a href="mailto:kosuke.0507.fukuda@gmail.com" className="text-blue-600 hover:underline">kosuke.0507.fukuda@gmail.com</a>
-          </p>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="text-center px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">施術に集中できる環境を作ろう</h2>
-        <p className="text-gray-500 mb-8">設定5分。あとはAIがお客様対応をすべて引き受けます。</p>
-        <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition">
+      <section style={{ background: '#111', padding: '100px 32px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '36px', fontWeight: 700, letterSpacing: '-1.5px', color: '#fff', marginBottom: '16px' }}>
+          施術に集中できる時間を取り戻す。
+        </h2>
+        <p style={{ fontSize: '16px', color: '#888', marginBottom: '40px' }}>設定5分。月¥3,980。いつでも解約可能。</p>
+        <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: '#111', padding: '16px 40px', borderRadius: '12px', textDecoration: 'none', fontSize: '16px', fontWeight: 700, letterSpacing: '-0.3px' }}>
           今すぐ始める →
         </Link>
       </section>
 
+      {/* 運営者 */}
+      <section style={{ background: '#0a0a0a', padding: '32px', textAlign: 'center' }}>
+        <p style={{ fontSize: '13px', color: '#555' }}>
+          運営者：福田煌介（東京都新宿区）·&nbsp;
+          <a href="mailto:kosuke.0507.fukuda@gmail.com" style={{ color: '#666', textDecoration: 'none' }}>kosuke.0507.fukuda@gmail.com</a>
+        </p>
+      </section>
+
       {/* フッター */}
-      <footer className="border-t border-gray-100 px-6 py-8 text-center text-sm text-gray-400 space-x-4">
-        <span>© 2026 AI Sales Assist</span>
-        <Link href="/legal" className="hover:text-gray-600">特定商取引法に基づく表記</Link>
-        <Link href="/privacy" className="hover:text-gray-600">プライバシーポリシー</Link>
+      <footer style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1a', padding: '24px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+        <span style={{ fontSize: '13px', color: '#444' }}>© 2026 AI Sales Assist</span>
+        <div style={{ display: 'flex', gap: '24px' }}>
+          <Link href="/legal" style={{ fontSize: '13px', color: '#444', textDecoration: 'none' }}>特定商取引法に基づく表記</Link>
+          <Link href="/privacy" style={{ fontSize: '13px', color: '#444', textDecoration: 'none' }}>プライバシーポリシー</Link>
+        </div>
       </footer>
     </div>
   )
