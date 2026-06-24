@@ -13,6 +13,7 @@ export default function PrivacyPage() {
             <li>LINE公式アカウントのChannel Access TokenおよびChannel Secret</li>
             <li>お客様のLINEユーザーから受信したメッセージ内容</li>
             <li>決済情報（Stripeを通じて処理、カード情報は当サービスでは保持しません）</li>
+            <li>サービス利用に関するログ情報</li>
           </ul>
         </section>
 
@@ -23,6 +24,7 @@ export default function PrivacyPage() {
             <li>サービスの提供・運営・改善</li>
             <li>お問い合わせへの対応</li>
             <li>利用料金の請求</li>
+            <li>不正利用の防止</li>
           </ul>
         </section>
 
@@ -40,12 +42,28 @@ export default function PrivacyPage() {
 
         <section>
           <h2 className="font-bold text-gray-800 mb-2">4. データの保管</h2>
-          <p>取得したデータはSupabase（米国）のサーバーに保管されます。アカウント削除時にはデータを消去します。</p>
+          <p>取得したデータはSupabase（米国）のサーバーに暗号化して保管されます。アカウント削除のご要望をいただいた場合、速やかにデータを消去します。</p>
         </section>
 
         <section>
-          <h2 className="font-bold text-gray-800 mb-2">5. お問い合わせ</h2>
-          <p>プライバシーに関するお問い合わせは以下までご連絡ください。</p>
+          <h2 className="font-bold text-gray-800 mb-2">5. Cookieの利用</h2>
+          <p>当サービスでは、ログイン状態の維持のためにCookie（セッション情報）を利用しています。ブラウザの設定でCookieを無効にすることもできますが、その場合、一部機能が正常に動作しない場合があります。</p>
+        </section>
+
+        <section>
+          <h2 className="font-bold text-gray-800 mb-2">6. 個人情報の開示・訂正・削除</h2>
+          <p>ご本人から個人情報の開示・訂正・削除・利用停止のご請求があった場合、本人確認のうえ、合理的な期間内に対応いたします。下記お問い合わせ先までご連絡ください。</p>
+        </section>
+
+        <section>
+          <h2 className="font-bold text-gray-800 mb-2">7. プライバシーポリシーの変更</h2>
+          <p>本ポリシーの内容は、法令の改正やサービス変更に応じて予告なく変更することがあります。変更後のポリシーは本ページに掲載します。</p>
+        </section>
+
+        <section>
+          <h2 className="font-bold text-gray-800 mb-2">8. お問い合わせ</h2>
+          <p>個人情報の取り扱いに関するお問い合わせ・開示請求は以下までご連絡ください。</p>
+          <p className="mt-1">運営者：福田煌介</p>
           <p className="mt-1">メール：kosuke.0507.fukuda@gmail.com</p>
         </section>
       </div>

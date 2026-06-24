@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex gap-4 items-center">
           <Link href="/auth" className="text-sm text-gray-600 hover:text-gray-900">ログイン</Link>
           <Link href="/auth" className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            無料で始める
+            今すぐ始める
           </Link>
         </div>
       </header>
@@ -27,9 +27,9 @@ export default function Home() {
           あなたのビジネス情報を登録するだけ。お客様からのメッセージにClaudeが自動で返信します。
         </p>
         <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-          無料で試す →
+          今すぐ始める →
         </Link>
-        <p className="text-sm text-gray-400 mt-4">いつでも解約可能・設定5分</p>
+        <p className="text-sm text-gray-400 mt-4">いつでも解約可能・設定5分・月額¥3,980</p>
       </section>
 
       {/* 信頼バッジ */}
@@ -176,7 +176,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-gray-800 mb-4">LINEの返信業務から解放されよう</h2>
         <p className="text-gray-500 mb-8">設定5分。あとはAIにおまかせ。</p>
         <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition">
-          無料で始める →
+          今すぐ始める →
         </Link>
       </section>
 
