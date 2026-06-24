@@ -173,7 +173,7 @@ function SettingsContent() {
         <h3 className="font-medium text-yellow-800 mb-2">Webhook URLをLINEに設定してください</h3>
         <p className="text-yellow-700 text-sm mb-2">LINE Developers → Messaging API → Webhook URL に以下を設定：</p>
         <code className="bg-yellow-100 text-yellow-900 text-xs px-3 py-2 rounded block">
-          https://ai-sales-assist.vercel.app/api/line/webhook
+          https://te-ai.vercel.app/api/line/webhook
         </code>
       </div>
     </div>

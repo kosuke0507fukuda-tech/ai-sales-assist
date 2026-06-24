@@ -17,7 +17,7 @@ export default function LegalPage() {
             ['解約について', 'マイページよりいつでも解約可能。解約後は次回更新日まで利用できます。'],
             ['返金について', 'サービスの性質上、原則として返金はお受けしておりません。ただし、当サービスの重大な障害等、当社の責に帰すべき事由がある場合はご相談ください。'],
             ['動作環境', 'LINE公式アカウント（Messaging API対応）が必要です'],
-            ['サービスの名称', 'AI Sales Assist'],
+            ['サービスの名称', 'Te-AI（テアイ）'],
           ].map(([label, value], i) => (
             <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
               <td className="border border-gray-200 px-4 py-3 font-medium text-gray-700 w-1/3 align-top">{label}</td>

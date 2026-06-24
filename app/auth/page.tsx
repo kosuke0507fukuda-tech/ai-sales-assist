@@ -36,7 +36,7 @@ export default function AuthPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-2 text-gray-800">AI Sales Assist</h1>
+        <h1 className="text-2xl font-bold text-center mb-2 text-gray-800">Te-AI</h1>
         <p className="text-center text-gray-500 mb-8 text-sm">LINEの返信をAIが自動化</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -6,7 +6,7 @@ export default function Home() {
 
       {/* ナビ */}
       <nav style={{ borderBottom: '1px solid #f0f0f0', padding: '0 32px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', zIndex: 50 }}>
-        <div style={{ fontWeight: 700, fontSize: '18px', letterSpacing: '-0.5px' }}>AI Sales Assist</div>
+        <div style={{ fontWeight: 700, fontSize: '18px', letterSpacing: '-0.5px' }}>Te-AI</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           <Link href="/legal" style={{ fontSize: '14px', color: '#666', textDecoration: 'none' }}>特商法</Link>
           <Link href="/auth" style={{ fontSize: '14px', color: '#666', textDecoration: 'none' }}>ログイン</Link>
@@ -217,7 +217,7 @@ export default function Home() {
 
       {/* フッター */}
       <footer style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1a', padding: '24px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-        <span style={{ fontSize: '13px', color: '#444' }}>© 2026 AI Sales Assist</span>
+        <span style={{ fontSize: '13px', color: '#444' }}>© 2026 Te-AI</span>
         <div style={{ display: 'flex', gap: '24px' }}>
           <Link href="/legal" style={{ fontSize: '13px', color: '#444', textDecoration: 'none' }}>特定商取引法に基づく表記</Link>
           <Link href="/privacy" style={{ fontSize: '13px', color: '#444', textDecoration: 'none' }}>プライバシーポリシー</Link>
