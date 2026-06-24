@@ -1,15 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { validateSignature, sendReply, sendPushMessage } from '@/lib/line'
 import { generateReply } from '@/lib/claude'
 import { supabaseAdmin } from '@/lib/supabase'
+import * as crypto from 'crypto'
+import { messagingApi } from '@line/bot-sdk'
 
 export async function POST(req: NextRequest) {
   const body = await req.text()
   const signature = req.headers.get('x-line-signature') || ''
-
-  if (!validateSignature(body, signature)) {
-    return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
-  }
 
   const events = JSON.parse(body).events
 
@@ -20,29 +17,43 @@ export async function POST(req: NextRequest) {
     const userMessage = event.message.text
     const replyToken = event.replyToken
 
-    // このWebhookを受け取るオーナーのプロフィールを取得
-    // （MVP: 最初の登録ユーザー1名を対象）
-    const { data: profile, error: profileError } = await supabaseAdmin
+    // subscribed=trueのプロフィールを全取得
+    const { data: profiles } = await supabaseAdmin
       .from('profiles')
       .select('*')
       .eq('subscribed', true)
-      .single()
 
-    console.log('profile:', JSON.stringify(profile), 'error:', JSON.stringify(profileError))
+    // シグネチャ検証でどのユーザーのwebhookか特定
+    let profile = null
+    if (profiles) {
+      for (const p of profiles) {
+        const secret = p.line_channel_secret || process.env.LINE_CHANNEL_SECRET
+        const hash = crypto.createHmac('sha256', secret).update(body).digest('base64')
+        if (hash === signature) {
+          profile = p
+          break
+        }
+      }
+    }
+
+    // フォールバック：環境変数のシークレットで検証
+    if (!profile) {
+      const hash = crypto.createHmac('sha256', process.env.LINE_CHANNEL_SECRET!).update(body).digest('base64')
+      if (hash !== signature) continue
+      if (profiles && profiles.length > 0) profile = profiles[0]
+    }
 
     if (!profile) continue
 
-    // LINE表示名を取得（任意）
+    const accessToken = profile.line_channel_access_token || process.env.LINE_CHANNEL_ACCESS_TOKEN
+    const lineClient = new messagingApi.MessagingApiClient({ channelAccessToken: accessToken })
+
+    // LINE表示名を取得
     let displayName = 'お客様'
     try {
-      const res = await fetch(`https://api.line.me/v2/bot/profile/${lineUserId}`, {
-        headers: { Authorization: `Bearer ${process.env.LINE_CHANNEL_ACCESS_TOKEN}` },
-      })
-      const data = await res.json()
-      displayName = data.displayName || 'お客様'
+      const userProfile = await lineClient.getProfile(lineUserId)
+      displayName = userProfile.displayName || 'お客様'
     } catch {}
-
-    console.log('mode:', profile.mode, 'lineUserId:', lineUserId, 'message:', userMessage)
 
     // Claude APIで返信文を生成
     const replyText = await generateReply(
@@ -53,9 +64,10 @@ export async function POST(req: NextRequest) {
     )
 
     if (profile.mode === 'auto') {
-      // フルオートモード：即座に返信
-      await sendReply(replyToken, replyText)
-
+      await lineClient.replyMessage({
+        replyToken,
+        messages: [{ type: 'text', text: replyText }],
+      })
       await supabaseAdmin.from('messages').insert({
         user_id: profile.id,
         line_user_id: lineUserId,
@@ -65,7 +77,6 @@ export async function POST(req: NextRequest) {
         status: 'sent',
       })
     } else {
-      // セミオートモード：下書きとして保存
       await supabaseAdmin.from('messages').insert({
         user_id: profile.id,
         line_user_id: lineUserId,
@@ -74,8 +85,6 @@ export async function POST(req: NextRequest) {
         reply_draft: replyText,
         status: 'pending',
       })
-
-      // オーナーに通知（オーナー自身のLINEに通知する場合はここに追加）
     }
   }
 
