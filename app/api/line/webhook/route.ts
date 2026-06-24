@@ -22,11 +22,13 @@ export async function POST(req: NextRequest) {
 
     // このWebhookを受け取るオーナーのプロフィールを取得
     // （MVP: 最初の登録ユーザー1名を対象）
-    const { data: profile } = await supabaseAdmin
+    const { data: profile, error: profileError } = await supabaseAdmin
       .from('profiles')
       .select('*')
       .eq('subscribed', true)
       .single()
+
+    console.log('profile:', JSON.stringify(profile), 'error:', JSON.stringify(profileError))
 
     if (!profile) continue
 
@@ -39,6 +41,8 @@ export async function POST(req: NextRequest) {
       const data = await res.json()
       displayName = data.displayName || 'お客様'
     } catch {}
+
+    console.log('mode:', profile.mode, 'lineUserId:', lineUserId, 'message:', userMessage)
 
     // Claude APIで返信文を生成
     const replyText = await generateReply(

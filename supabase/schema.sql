@@ -1,6 +1,6 @@
 -- ユーザープロフィール（サービス設定）
 create table profiles (
-  id uuid references auth.users primary key,
+  id uuid primary key default gen_random_uuid(),
   business_description text,
   product_url text,
   mode text default 'semi' check (mode in ('auto', 'semi')),
