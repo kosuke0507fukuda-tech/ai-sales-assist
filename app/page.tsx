@@ -17,14 +17,14 @@ export default function Home() {
       {/* ヒーロー */}
       <section className="text-center px-6 py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="inline-block bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-6">
-          LINE公式アカウントの返信を自動化
+          ネイル・まつ毛・ハンドメイド作家さん向け
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-          LINEの問い合わせ対応、<br />
-          <span className="text-blue-600">AIに任せませんか？</span>
+          「空き日程は？」「料金は？」<br />
+          <span className="text-blue-600">全部AIが自動で返します。</span>
         </h1>
         <p className="text-lg text-gray-500 mb-10 max-w-xl mx-auto">
-          あなたのビジネス情報を登録するだけ。お客様からのメッセージにClaudeが自動で返信します。
+          1人サロン・ハンドメイド作家のLINEに来る問い合わせを、Claudeが24時間自動で対応。返信漏れ・機会損失をなくします。
         </p>
         <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
           今すぐ始める →
@@ -47,9 +47,9 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">こんなお悩みありませんか？</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { emoji: '😩', text: 'LINEの返信に毎日時間を取られている' },
-            { emoji: '😰', text: '返信が遅れてお客様を逃してしまう' },
-            { emoji: '🤯', text: '同じ質問に何度も答えるのが面倒' },
+            { emoji: '😩', text: '施術中にLINEが来て、終わったら返信を忘れてしまう' },
+            { emoji: '😰', text: '返信が遅くて他のサロンに予約を取られてしまう' },
+            { emoji: '🤯', text: '「料金は？」「空きは？」を毎回手打ちするのが面倒' },
           ].map((item, i) => (
             <div key={i} className="bg-red-50 border border-red-100 rounded-xl p-6 text-center">
               <div className="text-3xl mb-3">{item.emoji}</div>
@@ -65,9 +65,9 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">3ステップで自動化完了</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: '1', title: 'ビジネス情報を登録', desc: 'あなたのサービス内容・よくある質問を入力するだけ' },
+              { step: '1', title: 'サロン情報を登録', desc: 'メニュー・料金・営業時間などを入力するだけ' },
               { step: '2', title: 'LINEと連携', desc: 'LINE DevelopersのトークンをコピペするだけでOK' },
-              { step: '3', title: 'AIが自動返信', desc: 'お客様のメッセージにClaudeが24時間自動で返信' },
+              { step: '3', title: 'AIが24時間対応', desc: '施術中・深夜でもClaudeがお客様に自動で返信' },
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">
@@ -86,10 +86,10 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">主な機能</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { icon: '🤖', title: 'フルオート返信', desc: 'メッセージ受信後、数秒以内にClaudeが自動返信。24時間365日対応。' },
-            { icon: '✅', title: 'セミオート（承認制）', desc: 'AIが下書きを作成。確認してから送信できるので安心。' },
-            { icon: '🎯', title: 'ビジネスに合わせた返信', desc: 'あなたのサービス内容を学習。的確な返信文を生成します。' },
-            { icon: '📊', title: '管理画面', desc: 'すべての会話履歴を一覧で確認。対応状況を把握できます。' },
+            { icon: '🤖', title: '施術中も即レス', desc: '手が離せない時間でもClaudeが数秒以内に返信。機会損失をゼロに。' },
+            { icon: '✅', title: '確認してから送信', desc: 'AIが下書きを作成。送る前に確認できるので安心して使えます。' },
+            { icon: '🎯', title: 'サロン情報を覚えて返信', desc: '料金・メニュー・予約方法をAIが記憶。的確な返信を自動生成。' },
+            { icon: '📊', title: '管理画面で一覧確認', desc: 'お客様とのやりとりを一覧で確認。対応漏れを防ぎます。' },
           ].map((item, i) => (
             <div key={i} className="border border-gray-200 rounded-xl p-6">
               <div className="text-3xl mb-3">{item.icon}</div>
@@ -134,7 +134,7 @@ export default function Home() {
           {[
             {
               q: 'LINEの設定は難しいですか？',
-              a: 'LINE Developersでチャンネルを作成し、トークンをコピペするだけです。手順は登録後のガイドで説明しています。',
+              a: 'LINE Developersでチャンネルを作成し、トークンをコピペするだけです。ネイリストやハンドメイド作家さんでも設定できる手順で説明しています。',
             },
             {
               q: 'AIがおかしな返信をしないか心配です',
@@ -173,8 +173,8 @@ export default function Home() {
 
       {/* CTA */}
       <section className="text-center px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">LINEの返信業務から解放されよう</h2>
-        <p className="text-gray-500 mb-8">設定5分。あとはAIにおまかせ。</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">施術に集中できる環境を作ろう</h2>
+        <p className="text-gray-500 mb-8">設定5分。あとはAIがお客様対応をすべて引き受けます。</p>
         <Link href="/auth" className="inline-block bg-blue-600 text-white text-lg px-8 py-4 rounded-xl hover:bg-blue-700 transition">
           今すぐ始める →
         </Link>
